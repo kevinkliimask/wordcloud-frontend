@@ -1,0 +1,12 @@
+<div>
+  <input
+    type="file"
+    #fileDropRef
+    id="fileDropRef"
+    (change)="onFileSelected($event)" />
+  <app-icon icon="cloud-upload"></app-icon>
+  <h3>Drag and drop file here</h3>
+  <p>or</p>
+  <label for="fileDropRef">Browse for file</label>
+  <p *ngIf="selectedFile">Selected: {{ selectedFile.name }}</p>
+</div>
