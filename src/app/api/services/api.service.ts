@@ -10,7 +10,7 @@ export class ApiService {
   private readonly baseUrl: string;
 
   constructor(
-    @Inject(DOCUMENT) private readonly document: Document,
+    @Inject(DOCUMENT) document: Document,
     private readonly httpClient: HttpClient,
   ) {
     this.baseUrl = this.buildBaseUrl(document.location.href);
@@ -29,7 +29,11 @@ export class ApiService {
     return `${this.baseUrl}${path}`;
   }
 
-  post<T>(path: string, body: any = null, headers?: HttpHeaders): Promise<T> {
-    return firstValueFrom(this.httpClient.post<T>(this.buildUrl(path), body, { headers }));
+  get<T>(path: string, headers?: HttpHeaders, options?: object): Promise<T> {
+    return firstValueFrom(this.httpClient.get<T>(this.buildUrl(path), { headers, ...options }));
+  }
+
+  post<T>(path: string, body: any = null, headers?: HttpHeaders, options?: object): Promise<T> {
+    return firstValueFrom(this.httpClient.post<T>(this.buildUrl(path), body, { headers, ...options }));
   }
 }

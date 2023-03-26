@@ -10,4 +10,5 @@
   <label for="fileDropRef">Browse for file</label>
   <p *ngIf="selectedFile">Selected: {{ selectedFile.name }}</p>
 </div>
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
 <button (click)="uploadFile()">Submit</button>

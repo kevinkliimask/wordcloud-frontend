@@ -18,7 +18,9 @@ div {
     z-index: 2;
   }
 
-  p, h3, label {
+  p,
+  h3,
+  label {
     margin-top: rem(12px);
   }
 
@@ -34,5 +36,26 @@ div {
   app-icon {
     color: cadetblue;
     font-size: rem(60px);
+  }
+}
+
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  button {
+    border-radius: rem(20px);
+    cursor: pointer;
+    margin: 0 auto;
+    margin-top: rem(40px);
+    padding: rem(8px) rem(16px);
+    width: fit-content;
+  }
+
+  .error {
+    color: red;
+    margin-top: rem(10px);
+    text-align: center;
   }
 }
